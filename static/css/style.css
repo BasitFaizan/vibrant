@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap:wght@400;500');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.Roboto{
+  font-family: 'Roboto';
+}
+.svg {
+  position: absolute;
+  width: 240px;
+  height: 120px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+nav{
+  z-index: 10000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.svg #plug,
+.svg #socket {
+  fill: #FDB515;
+}
+
+.svg #loop-normal {
+  fill: none;
+  stroke: #FDB515;
+  stroke-width: 12;
+}
+
+.svg #loop-offset {
+  display: none;
+}
+
+.credit {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.credit a {
+  color: #FDB515;
+  font: 800 75% "Open Sans", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.preloader{
+  display: grid;
+  place-items: center;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000000;
+}
+.down{
+  height: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+  overflow: hidden;
+}
+.drop:hover > .down{
+  height: 20vh;
+  padding: 1.5rem;
+  border-top: 2px solid #ff543b;
+  pointer-events: all;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navlink{
+  height: 5rem;
+}
+.home{
+  width: 100vw;
+  height: 100vh;
+  background: url('../../media/sectionImages/pexels-oscar-ovalle-1034008.jpg') no-repeat center / cover;
+}
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Adjust the alpha value to control darkness */
+}
+.follow{
+  width: 1px;
+  height: 2rem;
+  background-color: #ADADAD;
+}
+.font-shadows-into-light {
+  font-family: 'Shadows Into Light';
+  font-weight: 900;
+}
+.heebo{
+  font-family: 'Heebo', sans-serif;
+}
+#mouse-scroll {
+  position: fixed;
+  margin: auto;
+  left: 50%;
+  bottom: 30px;
+  -webkit-transform: translateX(-50%);
+  z-index: 9999;
+}
+#mouse-scroll .mouse {
+  height: 21px;
+  width: 14px;
+  border-radius: 10px;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  border: 2px solid #ffffff;
+  top: 170px;
+}
+#mouse-scroll .mouse-in {
+  height: 5px;
+  width: 2px;
+  display: block;
+  margin: 5px auto;
+  background: #ffffff;
+  position: relative;
+  -webkit-animation: animated-mouse 1.2s ease infinite;
+}
+#mouse-scroll .down-arrow-1, 
+#mouse-scroll .down-arrow-2, 
+#mouse-scroll .down-arrow-3 {
+   -webkit-animation: mouse-scroll 1s infinite;
+  -moz-animation: mouse-scroll 1s infinite;
+}
+#mouse-scroll .down-arrow-1 {
+  margin-top: 6px;
+}
+#mouse-scroll .down-arrow-2 {
+  -webkit-animation-delay: .2s;
+  -moz-animation-delay: .2s;
+  -webkit-animation-direction: alternate;
+}
+#mouse-scroll .down-arrow-3 {
+  -webkit-animation-delay: .3s;
+  -moz-animation-dekay: .3s;
+  -webkit-animation-direction: alternate;
+}
+#mouse-scroll span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  margin: 0 0 3px 5px;
+}
+
+
+@-webkit-keyframes animated-mouse {
+  0% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+  }
+  100% {
+       opacity: 0;
+      -webkit-transform: translateY(6px);
+      -ms-transform: translateY(6px);
+      transform: translateY(6px);
+  }
+}
+
+@-webkit-keyframes mouse-scroll {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: .5;
+  }
+  100% {
+      opacity: 1;
+  } 
+}
+@keyframes mouse-scroll {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@media (max-width:1023px) {
+  .navlink{
+    height: 0;
+    transition: all 0.5s ease-in;
+    overflow: hidden;
+  }
+  .navlink.active{
+    height: 20rem;
+  }
+  .drop:hover > .down{
+    border: 2px solid #ff543b;
+  }
+}

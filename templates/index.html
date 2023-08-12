@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block home %}
+<div class="home relative">
+    <div class="absolute w-[2.5rem] h-full top-0 left-10 flex flex-col items-center justify-end">
+      <span class="rotate-[-90deg] text-[#ADADAD] mb-6">Follow</span>
+      <div class="follow"></div>
+      <a href="https://www.instagram.com/mdshaad783/" class="w-12 h-12 rounded-full my-3 grid place-items-center border-2">
+        <img class="rounded-full w-10 h-10" src="media/sectionImages/shaad.jpg" alt="">
+      </a>
+      <a href="https://www.instagram.com/basit.ig/" class="w-12 h-12 rounded-full my-3 grid place-items-center  border-2">
+        <img class="rounded-full w-10 h-10" src="media/sectionImages/basit.jpeg" alt="">
+      </a>
+      <div class="mb-20"></div>
+    </div>
+    <div class="w-[70vw] h-[70vh] absolute top-[10rem] left-[10%]">
+        <h2 class="text-[4rem] text-[#fff] font-shadows-into-light font-semi-bold">We are Programmers</h2>
+        <p class="text-white mt-10 text-[1.3rem] Roboto">Welcome to our Website, dedicated to showcasing the remarkable projects developed by our talented team of Computer Science and Engineering (CSE) students! Here, we bring you a captivating playlist-style series, where innovation meets coding expertise.
+        Our Website is a hub of creativity, where we presents a unique and impactful project crafted by our dynamic CSE team. From cutting-edge software applications to groundbreaking web solutions, we dive deep into the world of technology to bring you the latest advancements and trends.</p>
+    </div>
+</div>
+<div id="mouse-scroll">
+    <div class="mouse">
+        <div class="mouse-in"></div>
+    </div>
+    <div>
+        <span class="down-arrow-1"></span>
+        <span class="down-arrow-2"></span>
+        <span class="down-arrow-3"></span>
+    </div>
+</div>
+{% endblock home %}

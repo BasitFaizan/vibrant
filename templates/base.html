@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <title>VIBRANT - {% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <div class="preloader">
+    <svg class="svg" id="preloader" width="240px" height="120px" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  
+        <path id="loop-normal" class="st1" d="M120.5,60.5L146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5
+      L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0z">
+          <animate attributeName="stroke-dasharray" from="500, 50" to="450 50" begin="0s" dur="2s" repeatCount="indefinite" />
+          <animate attributeName="stroke-dashoffset" from="-40" to="-540" begin="0s" dur="2s" repeatCount="indefinite" />
+        </path>
+      
+        <path id="loop-offset" d="M146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0L120.5,60.5L146.48,87.02z"></path>
+      
+        <path id="socket" d="M7.5,0c0,8.28-6.72,15-15,15l0-30C0.78-15,7.5-8.28,7.5,0z">
+          <animateMotion
+            dur="2s"
+            repeatCount="indefinite"
+            rotate="auto"
+            keyTimes="0;1"
+            keySplines="0.42, 0.0, 0.58, 1.0"
+          >
+            <mpath xlink:href="#loop-offset"/>
+          </animateMotion>
+        </path>
+        
+      <path id="plug" d="M0,9l15,0l0-5H0v-8.5l15,0l0-5H0V-15c-8.29,0-15,6.71-15,15c0,8.28,6.71,15,15,15V9z">
+        <animateMotion
+          dur="2s"
+          rotate="auto"
+          repeatCount="indefinite"
+          keyTimes="0;1"    
+          keySplines="0.42, 0, 0.58, 1"
+        >
+          <mpath xlink:href="#loop-normal"/>
+        </animateMotion>
+      </path>   
+        
+      </svg>
+    </div>
+      {% comment %} navbar {% endcomment %}
+      <nav class="w-full lg:h-[5rem] h-[6rem] {% block navColor %}{% endblock navColor %} flex lg:flex-row flex-col absolute top-0 left-0">
+        <div class="lg:h-full h-[6rem] lg:w-[14vw] w-[100vw] logo px-3">
+            <img class="w-[8rem]" src="media/logo/vibrantLogo.webp" alt="">
+            <div class="h-[3rem] w-[3rem] bg-[#ff543b] grid cursor-pointer place-items-center lg:hidden hamburger">
+                <div class="space-y-2">
+                    <span class="block w-8 h-0.5 bg-white"></span>
+                    <span class="block w-8 h-0.5 bg-white"></span>
+                    <span class="block w-5 h-0.5 bg-white"></span>
+                  </div>
+            </div>
+        </div>
+        <ul class="navlink text-[#fff] flex lg:flex-row flex-col lg:ml-20 lg:w-[50vw] w-full lg:bg-transparent bg-[#404040] lg:items-center lg:px-5 lg:relative lg:top-0 left-0 absolute top-24 left-0">
+            <li class="lg:h-full h-[3rem] cursor-pointer p-3 lg:grid place-items-center mx-1 hover:text-[#ff543b] transition-all heebo"><a href="/" class="py-4 px-2 {% if request.path == "/" %}active{% else %}inactive {% endif %}">Home</a></li>
+            <li class="lg:h-full h-[3rem] cursor-pointer p-3 lg:grid place-items-center mx-1 hover:text-[#ff543b] transition-all heebo"><a href="/about" class="py-4 px-2 {% if request.path == "/" %}active{% else %}inactive {% endif %}">About us</a></li>
+            <li class="lg:h-full h-[3rem] cursor-pointer p-3 lg:grid place-items-center lg:mx-1 lg:pl-0 pl-6 hover:text-[#ff543b] transition-all heebo drop relative">
+                <span>Portfolio</span>
+                <ul class="absolute bg-[#404040] text-[#fff] lg:w-[20vw] w-[35vw] absolute lg:top-[5rem] top-[3rem] lg:left-0 left-4 down">
+                    <li class="mb-3 hover:text-[#ff543b] hover:ml-1 hover:list-disc transition-all heebo"><a href="#">Basit Faizan</a></li>
+                    <li class="mb-3 hover:text-[#ff543b] hover:ml-1 hover:list-disc transition-all heebo"><a href="#">Md Shaad Khan</a></li>
+                </ul>
+            </li>
+            <li class="lg:h-full h-[5rem] cursor-pointer p-3 lg:grid place-items-center mx-1 hover:text-[#ff543b] transition-all heebo"><a href="/about" class="py-4 px-2 {% if request.path == "/contact" %}active{% else %}inactive {% endif %}">Contact us</a></li>
+            <div class="grid place-items-center w-[9rem] ml-[1.5rem] bg-white lg:hidden">
+                <a class="w-[9rem] grid place-items-center text-[#fff] heebo font-[1.3rem] h-[3rem] bg-[#ff543b]" href="#">Sign up</a>
+            </div>
+        </ul>
+        <div class="w-[20vw] ml-20 lg:grid place-items-center hidden">
+            <a class="w-[9rem] grid place-items-center text-[#fff] heebo font-[1.3rem] h-[3rem] bg-[#ff543b]" href="#">Sign up</a>
+        </div>
+      </nav>
+      {% block home %}{% endblock home %}
+      {% block about %}{% endblock about %}
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script src="static/js/loader.js"></script>
+</body>
+</html>
