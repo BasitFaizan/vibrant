@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block link %}<link rel="stylesheet" href="static/css/loginpg.css">{% endblock link %}
+
+{% block title %}Login page{% endblock title %}
+
+
+{% block body %}
+<section class="py-7">
+    <div class="sideleft">
+        <h2>Welcome Back!!</h2>
+        <p>User Login</p>
+    </div>
+    <div class="sideright">
+        <form method="post">
+            {% csrf_token %}
+            <p>Login to Dashboard</p>
+            <input type="text" name="uname" placeholder="Username" id="username" required><br>            
+            <input type="password" name="pass1" placeholder="Password" id="pass" required><br>
+            <!-- <input type="checkbox"id="checkbox" >Remember Me<br> -->
+            <button id="sendmsg"> Sign In</buttton>
+        </form>
+
+    </div>
+</section>
+{% endblock body %}

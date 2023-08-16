@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    display: flex;
+    background-color: #6A0AF9;
+}
+.sideleft{
+    height: 80vh;
+    width: 28vw;
+    background-color: #3B3B98;
+    margin-top: 10vh;
+    margin-left: 13vw;
+    margin-bottom: 10vh;
+    border-radius: 7px 0 0 7px;
+}.sideleft h2{
+    font-size: 40px;
+       margin-left: 4vw;
+       color: #fff;
+       margin-top: 33vh;
+}
+.sideleft p{
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-left: 8vw;
+    color: #3B3B98;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 40px ;
+    display: inline-block;
+}
+
+.sideright{
+    height: 80vh;
+    width: 47vw;
+    border-radius: 0 7px 7px 0;
+
+    background-color: #fff;
+    margin-top: 10vh;
+    
+}
+.sideright p{
+    font-size: 35px;
+    margin-top: 15vh;
+    margin-left: 7vw;
+    margin-bottom: 30px;
+}
+#username{
+    height: 6vh; width: 40vh; background-color: #ddd;border: none;border-bottom: 2px solid #3B3B98; border-radius: 5px ;margin-left: 15vh; padding: 3px 8px;width: 70vh;font-size: 17px;  margin-bottom: 20px; color: #000;       
+}
+#pass{
+    height: 6vh; width: 40vh; background-color: #ddd;border: none; border-bottom: 2px solid #3B3B98; border-radius: 5px ;margin-left: 15vh; padding: 3px 8px;font-size: 17px; width: 70vh; margin-bottom: 20px; color: #2AB6A8;
+}
+#checkbox{
+    margin-left: 15vh;}
+#sendmsg{
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; margin-top: 30px;margin-left: 15vh;
+    background-color: #3B3B98;
+    color: #fff;
+    border: none;
+    font-size: 10px;
+    padding: 10px 40px ;
+    border-radius: .28rem;
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 15vh;
+}
+@media (max-width:1200px){
+    .sideleft{
+        margin-top: 20vh;
+        margin-bottom: 20vh;
+    }
+    .sideright{
+        margin: 70px 70px 70px 70px;
+        border-radius: 7px 7px 7px 7px;
+        text-align: center;
+    }
+    .sideright p{
+        font-size: 25px;
+        margin-left: 25px;
+
+        
+    }
+    #username{
+       height: 6vh; 
+       width: 54vh;
+       margin-left: 15px;
+    }
+    #pass{
+       height: 6vh; 
+       width: 54vh;
+       margin-left: 15px;
+
+    }
+    #checkbox{
+        margin-left: 10px;
+    }
+    .sideright #sendmsg{
+        margin-left: 15px;
+        
+    }
+}
+@media (max-width:625px){
+    .sideleft{
+        display: none;
+    }
+    .sideright{
+        margin: 70px 70px 70px 70px;
+        border-radius: 7px 7px 7px 7px;
+        text-align: center;
+    }
+    .sideright p{
+        font-size: 25px;
+        margin-left: 25px;
+
+        
+    }
+    #username{
+       height: 6vh; 
+       width: 54vh;
+       margin-left: 15px;
+    }
+    #pass{
+       height: 6vh; 
+       width: 54vh;
+       margin-left: 15px;
+
+    }
+    #checkbox{
+        margin-left: 10px;
+    }
+    .sideright #sendmsg{
+        margin-left: 15px;
+        
+    }
+}
+@media (max-width:500px){
+    .sideleft{
+        display: none;
+    }
+    .sideright{
+        margin: 70px 70px 70px 70px;
+        border-radius: 7px 7px 7px 7px;
+        text-align: center;
+        
+    }
+    .sideright p{
+        font-size: 25px;
+        margin-left: 15px;
+        
+    }
+    #username{
+       height: 6vh; 
+       width: 40vh;
+       margin-left: 15px;
+
+    }
+    #pass{
+       height: 6vh; 
+       width: 40vh;
+       margin-left: 15px;
+
+    }
+    #checkbox{
+        margin-left: 10px;
+    }
+    .sideright #sendmsg{
+        margin-left: 15px;
+        
+    }
+}
+@media (max-width:373px){
+    .sideleft{
+        display: none;
+    }
+    .sideright{
+        margin: 70px 70px 70px 70px;
+        border-radius: 7px 7px 7px 7px;
+        text-align: center;
+        
+    }
+    .sideright p{
+        font-size: 25px;
+        margin-left: 15px;
+        
+    }
+    #username{
+       height: 6vh; 
+       width: 20vh;
+       margin-left: 13px;
+
+    }
+    #pass{
+       height: 6vh; 
+       width: 20vh;
+       margin-left: 13px;
+
+    }
+    #checkbox{
+        margin-left: 5px;
+    }
+    .sideright #sendmsg{
+        margin-left: 5px;
+        font-size: 10px;
+        
+    }
+}

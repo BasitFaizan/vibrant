@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block link %}<link rel="stylesheet" href="static/css/registerpg.css">{% endblock link %}
+
+
+{% block title %}Register page{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="static/css/registerpg.css">
+
+<section class="py-7">
+    <div class="sideleft">
+        <h2>Already have an account</h2>
+        <a href="login"><p>Login Here</p></a>
+    </div>
+    <div class="sideright">
+        <p>Sign in Yourself With Us </p>
+        <form method="post" action="">
+        {% csrf_token %}
+            <input type="text" name="username" placeholder="Your Name" class="info" required><br>
+            
+            <input type="email" name="email" placeholder="Your E-mail" class="info" required><br>
+
+            <input type="password" name="password1" placeholder="Create Password" class="info" required><br>
+
+            <input type="password" name="password2" placeholder="Confirm Password" class="info" required><br>
+
+            <input type="submit" value="Sign In" id="submit_btn">
+
+
+        </form>
+    </div>
+</section>
+
+{% endblock body %}
