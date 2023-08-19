@@ -7,7 +7,7 @@
 {% block body %}
 <link rel="stylesheet" href="static/css/registerpg.css">
 
-<section class="py-7">
+<section class="lg:py-7 py-12">
     <div class="sideleft">
         <h2>Already have an account</h2>
         <a href="login"><p>Login Here</p></a>
@@ -20,6 +20,7 @@
             
             <input type="email" name="email" placeholder="Your E-mail" class="info" required><br>
 
+            {% comment %} <input type="number" name="phoneNumber" placeholder="Enter Your Phone Number" class="info" required><br> {% endcomment %}
             <input type="password" name="password1" placeholder="Create Password" class="info" required><br>
 
             <input type="password" name="password2" placeholder="Confirm Password" class="info" required><br>

@@ -1,11 +1,16 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from Projects.models import Projectcard
+from django.contrib.auth import get_user_model
 
+
+User = get_user_model()
 # Create your views here.
 def home(request):
+    productCardDetails = Projectcard.objects.all()
     instaLinks = ['https://www.instagram.com/mdshaad783/','https://www.instagram.com/basit.ig/']
-    return render(request,'index.html')
+    return render(request,'index.html',{'productCardDetails':productCardDetails})
 
 def about(request):
     return render(request,'about.html')
@@ -14,6 +19,7 @@ def registerUser(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
+        # phoneNumber = request.POST.get('phoneNumber')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
 
@@ -33,6 +39,7 @@ def loginUser(request):
         pass1 = request.POST.get('pass1')
         user = authenticate(request, username=uname, password=pass1)
         if user is not None:
+            
             login(request, user)
         # Redirect to a success page.
             return redirect('home')
@@ -45,3 +52,7 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     return redirect("login")
+
+def explore(request,projectId):
+    projectDetail = Projectcard.objects.filter(pk=projectId)
+    return render (request,"explore.html",{'projectDetail':projectDetail})

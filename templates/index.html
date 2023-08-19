@@ -1,32 +1,99 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock title %}
+{% block title %}
+  Home
+{% endblock %}
 {% block home %}
-<div class="home relative">
-    <div class="absolute w-[2.5rem] h-full top-0 left-10 flex flex-col items-center justify-end">
+  <div class="home">
+    <div class="absolute w-[2.5rem] h-full top-0 left-10 flex flex-col items-center justify-end hidden lg:flex">
       <span class="rotate-[-90deg] text-[#ADADAD] mb-6">Follow</span>
       <div class="follow"></div>
-      <a href="https://www.instagram.com/mdshaad783/" class="w-12 h-12 rounded-full my-3 grid place-items-center border-2">
-        <img class="rounded-full w-10 h-10" src="media/sectionImages/shaad.jpg" alt="">
-      </a>
-      <a href="https://www.instagram.com/basit.ig/" class="w-12 h-12 rounded-full my-3 grid place-items-center  border-2">
-        <img class="rounded-full w-10 h-10" src="media/sectionImages/basit.jpeg" alt="">
-      </a>
+      <a href="https://www.instagram.com/mdshaad783/" class="w-12 h-12 rounded-full my-3 grid place-items-center border-2"><img class="rounded-full w-10 h-10" src="media/sectionImages/shaad.jpg" alt="" /></a>
+      <a href="https://www.instagram.com/basit.ig/" class="w-12 h-12 rounded-full my-3 grid place-items-center border-2"><img class="rounded-full w-10 h-10" src="media/sectionImages/basit.jpeg" alt="" /></a>
       <div class="mb-20"></div>
     </div>
     <div class="w-[70vw] h-[70vh] absolute top-[10rem] left-[10%]">
-        <h2 class="text-[4rem] text-[#fff] font-shadows-into-light font-semi-bold">We are Programmers</h2>
-        <p class="text-white mt-10 text-[1.3rem] Roboto">Welcome to our Website, dedicated to showcasing the remarkable projects developed by our talented team of Computer Science and Engineering (CSE) students! Here, we bring you a captivating playlist-style series, where innovation meets coding expertise.
-        Our Website is a hub of creativity, where we presents a unique and impactful project crafted by our dynamic CSE team. From cutting-edge software applications to groundbreaking web solutions, we dive deep into the world of technology to bring you the latest advancements and trends.</p>
+      <h2 class="lg:text-[4rem] text-[#fff] font-shadows-into-light font-semi-bold">We are Programmers</h2>
+      <p class="text-white mt-10 text-[1.3rem] Roboto">Welcome to our Website, dedicated to showcasing the remarkable projects developed by our talented team of Computer Science and Engineering (CSE) students! Here, we bring you a captivating playlist-style series, where innovation meets coding expertise.</p>
+      <a class="w-[9rem] flex items-center justify-evenly text-[#fff] mt-10 heebo font-[1.3rem] h-[3rem] bg-[#ff543b]" href="logout">Join our Team<lord-icon src="https://cdn.lordicon.com/zmkotitn.json" trigger="loop" delay="500" colors="primary:#ffffff" state="intro" style="width:20px;height:20px"></lord-icon></a>
     </div>
-</div>
-<div id="mouse-scroll">
-    <div class="mouse">
+    <div id="mouse-scroll">
+      <div class="mouse">
         <div class="mouse-in"></div>
-    </div>
-    <div>
+      </div>
+      <div>
         <span class="down-arrow-1"></span>
         <span class="down-arrow-2"></span>
         <span class="down-arrow-3"></span>
+      </div>
     </div>
-</div>
-{% endblock home %}
+  </div>
+  <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+{% endblock %}
+{% block projects %}
+
+<section class="projectSection w-full bg-[#0b0c0f] py-5 relative">
+  <h2 class="font-bold text-[2rem] text-white text-center">OUR PROJECTS</h2>
+  <!-- Projects card-->
+  {% if request.user.is_authenticated %}
+    {% if request.user.is_admin %}
+      <!-- Open the modal using ID.showModal() method -->
+<button class="btn absolute top-[5rem] right-5" onclick="my_modal_1.showModal()">Add Projects <lord-icon
+  src="https://cdn.lordicon.com/ynwbvguu.json"
+  trigger="loop"
+  colors="primary:#121331"
+  style="width:20px;height:20px">
+</lord-icon></button>
+<dialog id="my_modal_1" class="modal">
+  <form method="dialog" class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <!-- if there is a button in form, it will close the modal -->
+      <button class="btn">Close</button>
+    </div>
+  </form>
+</dialog>
+    {% endif %}
+  {% endif %}
+  <div class="sm:max-w-5xl mt-20 px-3 pt-8  md:max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center sm:mx-16 sm:my-10 gap-10">
+    {% for product in productCardDetails %}
+ 
+    <div class="h-100 sm:h-96 mb-10 sm:mb-0 bg-gradient-to-t from-blue-500 to-red-600 rounded-lg transform -rotate-6">
+    <div class="w-full  h-full bg-white rounded-lg transform rotate-6 shadow-lg focus:ring-2">
+    <div class="block items-center">
+     <div class=" px-2 w-full">
+       <img src={{product.projectTitleImage.url}} class="sm:px-2 sm:pt-8">
+      </div>
+     <div class="">
+      <div class="flex sm:px-5 py-8 justify-around">
+       <div>
+         <h2 class=" text-xl md:text-2xl font-serif">{{product.title}}</h2>
+        </div>
+       <div>
+       </div>
+      </div>
+      <div class="flex justify-around p-4 sm:p-0">
+       <div>
+        <a href="{% url 'explore' product.pk %}" class="bg-gray-200 font-serif font-semibold text-black border-solid rounded-md w-[10rem] h-[4rem] flex justify-center items-center"> Explore Now</a>
+       </div>
+      </div>
+     </div>
+    </div>
+    </div>
+   </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock projects %}

@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo&family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap:wght@400;500');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap');
 html,
 body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -20,6 +22,9 @@ body {
   bottom: 0;
   left: 0;
   margin: auto;
+}
+.Pacifico{
+  font-family: 'Pacifico';
 }
 nav{
   z-index: 10000;
@@ -89,6 +94,7 @@ nav{
   width: 100vw;
   height: 100vh;
   background: url('../../media/sectionImages/pexels-oscar-ovalle-1034008.jpg') no-repeat center / cover;
+  position: relative;
 }
 .home::before {
   content: "";
@@ -112,7 +118,7 @@ nav{
   font-family: 'Heebo', sans-serif;
 }
 #mouse-scroll {
-  position: fixed;
+  position: absolute;
   margin: auto;
   left: 50%;
   bottom: 30px;
@@ -185,6 +191,33 @@ nav{
       transform: translateY(6px);
   }
 }
+.background-container {
+  position: relative;
+  border-radius: 10px;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 10px;
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+}
+
+.background-image {
+  position: relative;
+  background: url('https://static.sadhguru.org/d/46272/1633199491-1633199490440.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  z-index: 0;
+}
 
 @-webkit-keyframes mouse-scroll {
   0% {
@@ -208,7 +241,14 @@ nav{
       opacity: 1;
   }
 }
-
+.projectSection{
+  min-height: 50vh;
+  max-height: auto;
+}
+.auto-height{
+  min-height: 50vh;
+  /* max-height: auto; */
+}
 @media (max-width:1023px) {
   .navlink{
     height: 0;
@@ -220,5 +260,10 @@ nav{
   }
   .drop:hover > .down{
     border: 2px solid #ff543b;
+  }
+}
+@media (max-width:700px){
+  .home{
+    height: 120vh;
   }
 }
