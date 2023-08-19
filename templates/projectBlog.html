@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block projectDetailsPage %}
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<section class="w-full auto-height pt-28 flex flex-col items-center">
+    <form method="post" enctype="multipart/form-data" class="h-[100vh]" >
+        {% csrf_token %}
+        {{ form.media }}
+        <div class="mb-4">
+            {{ form.blogTitle.label_tag }}
+            {{ form.blogTitle }}
+        </div>
+        <div class="mb-4">
+            {{ form.projectBlogImage.label_tag }}
+            {{ form.projectTitleImage }}
+        </div>
+        <div class="mb-4">
+            {{ form.projectBlogImage.label_tag }}
+            {{ form.content }}
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+            Update Post
+        </button>
+    </form>
+    
+</section>
+{% endblock projectDetailsPage %}

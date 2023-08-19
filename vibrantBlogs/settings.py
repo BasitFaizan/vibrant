@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'Projects',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'vibrantBlogs.wsgi.application'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'extraPlugins':'codesnippet',
+        'toolbar': 'full',  # Use the full toolbar with all options
+    },
+}
 
 
 # Database

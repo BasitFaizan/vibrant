@@ -28,18 +28,18 @@
       style="width:20px;height:20px">
     </lord-icon></button>
     <dialog id="my_modal_1" class="modal">
-      <form class="modal-box" method="post">
+      <form class="modal-box" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
             Title
           </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Enter Your Title">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Enter Your Title" name="ProjectBlogName">
         </div>
         <div class="mb-6">
           
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="file_input" type="file">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="file_input" type="file" name="ProjectBlogImage">
 
         </div>
         <div class="modal-action flex">
@@ -53,15 +53,16 @@
         {% endif %}
       {% endif %}
       <div class="mt-[6rem]">
-        <div class="w-full h-[30vh] rounded-lg flex">
+        {% for projectBlogPost in projectBlogPost %}
+        <div class="w-full h-[30vh] rounded-lg flex mb-7">
           <div class="w-[27vw] h-[30vh] rounded-l-lg overflow-hidden">
-            <img src="https://static.sadhguru.org/d/46272/1633199491-1633199490440.jpg" class="w-full" alt="">
+            <img src={{projectBlogPost.projectTitleImage.url}} class="w-full" alt="">
           </div>
           <div class="flex flex-col relative w-[63vw] rounded-r-lg px-3 relative">
-            <h2 class="font-bold text-[2rem] text-white">#1. Title of the day</h2>
-            <h4 class="text-white">Basit Faizan</h4>
+            <h2 class="font-bold text-[2rem] text-white">{{projectBlogPost.blogTitle}}</h2>
+            <h4 class="text-white">{{projectBlogPost.authorName}}</h4>
             <div class="tooltip absolute top-0 right-0" data-tip="Edit">
-              <a href='#' class="w-7 h-7 rounded-full bg-white grid place-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+              <a href="projectBlog/{{projectBlogPost.pk}}" class="w-7 h-7 rounded-full bg-white grid place-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
                 <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
               </svg></a>
             </div>
@@ -69,6 +70,7 @@
 
           </div>
         </div>
+        {% endfor %}
       </div>
 
 
